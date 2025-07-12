@@ -33,6 +33,7 @@ public class GoodbyeEntity {
             mappedBy = "goodbyeEntity",
             orphanRemoval = true
     )
+    @OrderBy("id ASC")
     private List<GoodbyeMessagesEntity> messagesList = new ArrayList<>();
 
     public void addGoodbyeMessage(String message) {

@@ -50,6 +50,12 @@ public enum CommandConstants {
             new Option[] {
                     new Option("message", "Mensaje, escriba '%u' para que se mencione al que acaba de unirse", OptionType.STRING, true,false)
             }
+    ),
+    SEE_GOODBYE_MESSAGES(
+            "see_goodbye_messages",
+            "Saca una paginacion con los mensajes de despedida",
+            DefaultMemberPermissions.DISABLED,
+            null
     )
     /*
     SET_GOOD_BYE_CHAT(
