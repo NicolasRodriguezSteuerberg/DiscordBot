@@ -14,6 +14,6 @@ Existe la opción de activar mensajes de bienvenidas, se puede modificar lo sigu
 Existe la opcion de activar mensajes de despedidas, se puede modificar lo siguiente:
 - El chat donde se van a mandar los mensajes
 - El titulo que se va a poner en el mensaje
-- El contenido de los mensajes (falta poder verlos y eliminar/editar uno en especifico)
+- El contenido de los mensajes (se puede eliminar/editar uno en especifico)
 - Si agregar un conteo de cuantos miembros quedan
-- 
+- Si agregar la fecha en la que se ha ido
