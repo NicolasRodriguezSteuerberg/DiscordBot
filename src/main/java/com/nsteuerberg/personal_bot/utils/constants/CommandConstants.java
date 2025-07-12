@@ -31,6 +31,25 @@ public enum CommandConstants {
             new Option[] {
                     new Option("message", "Mensaje, escriba '%u' para que se mencione al que acaba de unirse", OptionType.STRING, true,false)
             }
+    ),
+    SET_GOODBYE_OPTIONS(
+            "set_goodbye_options",
+            "Conjunto de cambios para el mensaje de despedida",
+            DefaultMemberPermissions.DISABLED,
+            new Option[]{
+                new Option("goodbye_chat", "Chat de texto donde mandar los mensajes de despedida", OptionType.CHANNEL, false, false),
+                new Option("title", "Titulo que se va a mostrar a la hora de mandar el mensaje de despedida", OptionType.STRING, false, false),
+                new Option("add_date", "Si agregar o no la fecha de entrada a la hora de mandar el mensaje de despedida", OptionType.BOOLEAN, false, false),
+                new Option("add_member_count", "Si agregar el conteo de miembros a la hora de mandar el mensaje de despedida", OptionType.BOOLEAN, false, false)
+            }
+    ),
+    ADD_GOODBYE_MESSAGE(
+            "add_goodbye_message",
+            "Agrega un nuevo mensaje de bienvenida",
+            DefaultMemberPermissions.DISABLED,
+            new Option[] {
+                    new Option("message", "Mensaje, escriba '%u' para que se mencione al que acaba de unirse", OptionType.STRING, true,false)
+            }
     )
     /*
     SET_GOOD_BYE_CHAT(

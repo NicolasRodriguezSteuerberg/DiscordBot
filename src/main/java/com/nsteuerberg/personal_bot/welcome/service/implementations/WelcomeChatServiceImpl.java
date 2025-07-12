@@ -79,7 +79,6 @@ public class WelcomeChatServiceImpl implements IWelcomeChatService {
         ;
 
         if (welcomeEntity.getAddDateEntry()) embedBuilder.setTimestamp(MyTime.getNow());
-        embedBuilder.setTimestamp(member.getTimeJoined());
         if (welcomeEntity.getMessagesList().isEmpty()) {
             embedBuilder.setDescription(String.format("%s se ha unido al servidor", member.getAsMention()));
         } else {

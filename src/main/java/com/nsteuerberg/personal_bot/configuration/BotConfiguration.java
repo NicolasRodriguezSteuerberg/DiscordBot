@@ -1,5 +1,6 @@
 package com.nsteuerberg.personal_bot.configuration;
 
+import com.nsteuerberg.personal_bot.goodbye.listener.GoodbyeListener;
 import com.nsteuerberg.personal_bot.welcome.listener.WelcomeListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -17,13 +18,15 @@ public class BotConfiguration {
 
     @Autowired
     private WelcomeListener guildListener;
+    @Autowired
+    private GoodbyeListener goodbyeListener;
 
     @Bean
     public JDA jdaBuilder() throws InterruptedException {
         return JDABuilder
                 .createDefault(botToken)
                 .setActivity(Activity.of(Activity.ActivityType.CUSTOM_STATUS, "hola"))
-                .addEventListeners(guildListener)
+                .addEventListeners(guildListener, goodbyeListener)
                 .enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.MESSAGE_CONTENT)
                 .build()
                 .awaitReady();
