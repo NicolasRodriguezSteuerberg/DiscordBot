@@ -21,9 +21,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static com.nsteuerberg.personal_bot.utils.common.Colors.getRandomColor;
 
 @Service
 public class GoodbyeServiceImpl implements IGoodbyeService {
@@ -127,13 +128,5 @@ public class GoodbyeServiceImpl implements IGoodbyeService {
             );
         }
         return  embedBuilder.build();
-    }
-
-    private Color getRandomColor(){
-        return new Color(
-                ThreadLocalRandom.current().nextInt(256), // Componente R
-                ThreadLocalRandom.current().nextInt(256), // Componente G
-                ThreadLocalRandom.current().nextInt(256)  // Componente B
-        );
     }
 }

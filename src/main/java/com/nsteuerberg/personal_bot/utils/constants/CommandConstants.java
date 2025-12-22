@@ -56,16 +56,29 @@ public enum CommandConstants {
             "Saca una paginacion con los mensajes de despedida",
             DefaultMemberPermissions.DISABLED,
             null
-    )
-    /*
-    SET_GOOD_BYE_CHAT(
-            "set_goodbye_chat",
-            "Agrega un canal de texto como chat de despedidas",
-            DefaultMemberPermissions.DISABLED,
+    ),
+    // SCORE
+    TIER_LIST_TEXT(
+            "tier_list_text",
+            "Top de los más activos en mensajes",
+            DefaultMemberPermissions.ENABLED,
+            null
+    ),
+    TIER_LIST_VOICE(
+            "tier_list_voice",
+            "Top de los mas activos en canales de voz",
+            DefaultMemberPermissions.ENABLED,
+            null
+    ),
+    SCORE(
+            "score",
+            "Puntuación personal (tanto de chat como de voz)",
+            DefaultMemberPermissions.ENABLED,
             new Option[]{
-                    new Option("chat", "Chat de texto", OptionType.CHANNEL, true, false)
+                new Option("user", "Nombre de usuario del que obtener la puntuacion", OptionType.USER, false, false)
             }
     ),
+    /*
     SET_ROLE_REACTION(
             "set_role_reaction",
             "Agrega un mensaje en el que se tiene que reaccionar con un rol para añadirselo",
@@ -76,12 +89,6 @@ public enum CommandConstants {
                     new Option("chat", "Nombre del chat donde mandar el mensaje", OptionType.CHANNEL, false, false)
             }
     ),
-
-    // SCORE
-    TIER_LIST("tier_list", "Top de los 5 mejores (tanto de chat como de voz)", DefaultMemberPermissions.ENABLED, null),
-    SPECIFIC_SCORE("score", "Puntuación personal (tanto de chat como de voz)", DefaultMemberPermissions.ENABLED, new Option[]{
-            new Option("user", "Nombre de usuario del que obtener la puntuacion", OptionType.USER, false, false)
-    }),
 
     // MUSIC
     PLAY("play", "Reproduce una cancion", DefaultMemberPermissions.DISABLED, new Option[]{
