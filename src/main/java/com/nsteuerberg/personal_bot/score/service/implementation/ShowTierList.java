@@ -4,7 +4,6 @@ import com.nsteuerberg.personal_bot.score.persistance.entity.ScoreEntity;
 import com.nsteuerberg.personal_bot.score.persistance.repository.ScoreRepository;
 import com.nsteuerberg.personal_bot.utils.constants.ButtonIds;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.nsteuerberg.personal_bot.utils.common.Colors.getRandomColor;
+import static com.nsteuerberg.personal_bot.utils.CommonUtils.getRandomColor;
 
 @Service
 public class ShowTierList {

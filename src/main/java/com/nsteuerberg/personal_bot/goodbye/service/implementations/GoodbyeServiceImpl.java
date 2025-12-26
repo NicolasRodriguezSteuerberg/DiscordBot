@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static com.nsteuerberg.personal_bot.utils.common.Colors.getRandomColor;
+import static com.nsteuerberg.personal_bot.utils.CommonUtils.getRandomColor;
 
 @Service
 public class GoodbyeServiceImpl implements IGoodbyeService {

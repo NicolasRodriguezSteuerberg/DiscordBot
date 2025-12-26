@@ -31,27 +31,7 @@ public class AddCommandBot {
         Guild guild = jda.getGuilds().getFirst();
         System.out.println(guild.getName());
         CommandListUpdateAction updateCommands = guild.updateCommands();
-        /*
-        // recorremos cada comando
-        for(CommandConstants command: CommandConstants.values()){
-            SlashCommandData commandData = Commands.slash(command.getName(), command.getDescription());
-            // solo permitimos que se puedan usar en un server
-            commandData = commandData.setContexts(InteractionContextType.GUILD);
-            commandData = commandData.setDefaultPermissions(command.getDefaultMemberPermissions());
-            // agregamos las opciones de ser el caso de tener
-            if (command.getOptions()!= null) {
-                for (CommandConstants.Option option : command.getOptions()) {
-                    commandData.addOption(
-                            option.getType(), option.getName(), option.getDescription(),
-                            option.isRequired(), option.isAutocomplete()
-                    );
-                }
-            }
-            updateCommands = updateCommands.addCommands(commandData);
-        }
 
-        updateCommands.queue();
-        */
         updateCommands.addCommands(getCommands()).queue();
     }
 

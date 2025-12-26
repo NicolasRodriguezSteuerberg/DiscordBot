@@ -10,6 +10,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class PersonalBotApplication {
 
 	public static void main(String[] args) {
+		System.out.println(System.getProperty("java.version"));
+		System.out.println(System.getProperty("os.arch"));
 		SpringApplication app = new SpringApplication(PersonalBotApplication.class);
 		app.setBeanNameGenerator(new CustomBeanNameGenerator());
 		app.run(args);

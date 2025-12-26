@@ -78,6 +78,21 @@ public enum CommandConstants {
                 new Option("user", "Nombre de usuario del que obtener la puntuacion", OptionType.USER, false, false)
             }
     ),
+    // MUSICA
+    PLAY(
+        "play",
+        "Reproducir / agregar a la lista de reproduccion una cancion o playlist",
+        DefaultMemberPermissions.ENABLED,
+        new Option[] {
+            new Option("song", "Nombre de la canción a reproducir", OptionType.STRING, true, true)
+        }
+    ),
+    PLAYLIST(
+        "playlist",
+        "Recoge la información de la playlist",
+        DefaultMemberPermissions.ENABLED,
+        null
+    )
     /*
     SET_ROLE_REACTION(
             "set_role_reaction",
@@ -89,11 +104,6 @@ public enum CommandConstants {
                     new Option("chat", "Nombre del chat donde mandar el mensaje", OptionType.CHANNEL, false, false)
             }
     ),
-
-    // MUSIC
-    PLAY("play", "Reproduce una cancion", DefaultMemberPermissions.DISABLED, new Option[]{
-            new Option("song", "Nombre de la cancion a reproducir", OptionType.STRING, true, false)
-    }),
     */
     ;
 
