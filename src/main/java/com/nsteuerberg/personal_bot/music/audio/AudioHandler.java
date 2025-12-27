@@ -1,4 +1,4 @@
-package com.nsteuerberg.personal_bot.music.service.audio;
+package com.nsteuerberg.personal_bot.music.audio;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.playback.MutableAudioFrame;

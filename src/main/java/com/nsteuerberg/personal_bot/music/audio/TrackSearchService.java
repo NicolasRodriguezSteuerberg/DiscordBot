@@ -1,6 +1,6 @@
-package com.nsteuerberg.personal_bot.music.usecases;
+package com.nsteuerberg.personal_bot.music.audio;
 
-import com.nsteuerberg.personal_bot.music.service.audio.TrackSearchHandler;
+import com.nsteuerberg.personal_bot.music.audio.model.TrackSearchHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import org.springframework.stereotype.Component;
@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Component
-public class SearchTrackUseCase {
+public class TrackSearchService {
     private final AudioPlayerManager playerManager;
 
-    public SearchTrackUseCase(AudioPlayerManager playerManager) {
+    public TrackSearchService(AudioPlayerManager playerManager) {
         this.playerManager = playerManager;
     }
 
-    public CompletableFuture<List<AudioTrack>> execute(String query, int limit) {
+    public CompletableFuture<List<AudioTrack>> getAudioTracks(String query, int limit) {
         CompletableFuture<List<AudioTrack>> future = new CompletableFuture<>();
         if (!query.startsWith("http")) {
             query = "ytsearch:" + query;
@@ -24,5 +24,4 @@ public class SearchTrackUseCase {
         playerManager.loadItem(query, new TrackSearchHandler(future, limit));
         return future;
     }
-
 }

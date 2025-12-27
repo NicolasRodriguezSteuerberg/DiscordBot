@@ -1,10 +1,9 @@
-package com.nsteuerberg.personal_bot.music.service.audio;
+package com.nsteuerberg.personal_bot.music.audio.model;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
-import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -42,4 +41,5 @@ public class TrackSearchHandler implements AudioLoadResultHandler {
     public void loadFailed(FriendlyException e) {
         future.completeExceptionally(e);
     }
+
 }

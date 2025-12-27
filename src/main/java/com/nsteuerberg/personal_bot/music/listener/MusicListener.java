@@ -22,7 +22,9 @@ public class MusicListener extends ListenerAdapter {
 
     @Override
     public void onCommandAutoCompleteInteraction(@NotNull CommandAutoCompleteInteractionEvent event) {
-        musicService.onCommandAutoCompleteInteraction(event);
+        IMusicCommand command = commandMap.get(event.getName());
+        if (command == null) return;
+        command.onAutoComplete(event);
     }
 
     @Override

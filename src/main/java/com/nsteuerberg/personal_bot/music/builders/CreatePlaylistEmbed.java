@@ -1,4 +1,4 @@
-package com.nsteuerberg.personal_bot.music.usecases;
+package com.nsteuerberg.personal_bot.music.builders;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import static com.nsteuerberg.personal_bot.utils.CommonUtils.*;
 
 @Component
-public class CreatePlaylistEmbedUseCase {
+public class CreatePlaylistEmbed {
     public Optional<MessageEmbed> execute(AudioTrack actualTrack, List<AudioTrack> playlist, int page, int size) {
         int start = page * size;
         if (actualTrack == null && (playlist.isEmpty() || start > playlist.size() - 1))
@@ -21,8 +21,10 @@ public class CreatePlaylistEmbedUseCase {
 
         EmbedBuilder builder = new EmbedBuilder()
                 .setTitle("Playlist %d/%d".formatted(page + 1, getMaxPages(playlist, size)))
-                .setThumbnail(getMusicThumbnail(actualTrack))
-                .setDescription("## Playing\n%s\n%s\n".formatted(getContent(actualTrack.getInfo()), getProgressBar(actualTrack)));
+                .setThumbnail(getMusicThumbnail(actualTrack));
+
+        String description = "## Playing\n%s\n%s\n".formatted(getContent(actualTrack.getInfo()), getProgressBar(actualTrack));
+
         while (start < end) {
             AudioTrack track = playlist.get(start);
             start++;
