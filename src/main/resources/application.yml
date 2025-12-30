@@ -1,6 +1,24 @@
 spring:
   application:
-    name: personal_bot
+    name: DiscordBot
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+
+discord:
+  token:
+    bot: ${DISCORD_BOT_TOKEN}
+
+
 
 logging:
   level:
@@ -11,3 +29,14 @@ logging:
     name: logs/bot_log.log
     max-size: 10MB
     max-history: 5
+
+score:
+  base-level: 10
+  message:
+    min-length: 10
+    cooldown-sec: 3
+    xp:
+      min: 1
+      max: 5
+  tier-list:
+    size: 5

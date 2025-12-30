@@ -1,6 +1,6 @@
 docker-compose.yml
-*-prod.yml
 logs
+.env
 
 HELP.md
 target/
