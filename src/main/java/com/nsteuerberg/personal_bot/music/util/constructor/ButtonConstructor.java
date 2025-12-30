@@ -22,13 +22,15 @@ public class ButtonConstructor {
 
     public static List<Button> createPlaylistButtons(int page, int size, int trackSize) {
         int maxPages = (int) Math.ceil((double) trackSize / size);
-        List<Button> buttons = new ArrayList<>();
+        System.out.println(page + "-" + maxPages);
         Button prev = Button.primary(MusicButtons.PREV_PAGE.getId() + (page - 1), MusicButtons.PREV_PAGE.getLabel());
         if (page == 0)
             prev = prev.asDisabled();
         Button next = Button.primary(MusicButtons.NEXT_PAGE.getId() + (page + 1), MusicButtons.NEXT_PAGE.getLabel());
-        if (maxPages == page - 1)
+        if (maxPages - 1 == page) {
+            System.out.println("page: " + page + " maxpage: " + maxPages + " size: " + size + " track_size: " + trackSize);
             next = next.asDisabled();
+        }
         return List.of(prev, next);
     }
 }

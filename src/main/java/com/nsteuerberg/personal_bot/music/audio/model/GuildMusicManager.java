@@ -13,6 +13,7 @@ import java.util.List;
 public class GuildMusicManager {
     private final AudioPlayer player;
     private final AudioManager manager;
+    private final MusicMessageManager messageManager;
     private final AudioHandler handler;
     private final TrackScheduler scheduler;
     private final Runnable onDisconnect;
@@ -21,8 +22,9 @@ public class GuildMusicManager {
         this.player = playerManager.createPlayer();
         this.manager = manager;
         this.onDisconnect = onDisconnect;
+        messageManager = new MusicMessageManager(channel);
 
-        scheduler = new TrackScheduler(player, new MusicMessageManager(channel), () -> disconnect());
+        scheduler = new TrackScheduler(player, messageManager, () -> disconnect());
         handler = new AudioHandler(player);
 
         this.player.addListener(scheduler);
@@ -45,7 +47,20 @@ public class GuildMusicManager {
         return player.getPlayingTrack();
     }
 
+    public void playPause(boolean isPause) {
+        player.setPaused(isPause);
+    }
+
+    public void skip() {
+        scheduler.next();
+    }
+
+    public void stop() {
+        disconnect();
+    }
+
     void disconnect() {
+        messageManager.onQueueEmpty();
         player.stopTrack();
         player.destroy();
         manager.closeAudioConnection();

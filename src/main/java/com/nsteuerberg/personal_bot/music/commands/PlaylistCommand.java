@@ -4,7 +4,6 @@ import com.nsteuerberg.personal_bot.commands.interfaces.IMusicCommand;
 import com.nsteuerberg.personal_bot.configuration.CustomName;
 import com.nsteuerberg.personal_bot.music.audio.model.GuildMusicManager;
 import com.nsteuerberg.personal_bot.music.service.MusicService;
-import com.nsteuerberg.personal_bot.music.builders.CreatePlaylistEmbed;
 import com.nsteuerberg.personal_bot.utils.constants.CommandConstants;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -24,7 +23,7 @@ import static com.nsteuerberg.personal_bot.music.util.constructor.EmbedConstruct
 public class PlaylistCommand implements IMusicCommand {
     private final MusicService musicService;
 
-    public PlaylistCommand(MusicService musicService, CreatePlaylistEmbed createPlaylistEmbed) {
+    public PlaylistCommand(MusicService musicService) {
         this.musicService = musicService;
     }
 

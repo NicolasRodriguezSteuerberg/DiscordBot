@@ -41,7 +41,7 @@ public class EmbedConstructor {
 
         AudioTrackInfo currentTrackInfo = currentTrack.getInfo();
         EmbedBuilder builder = new EmbedBuilder()
-                .setTitle("Playlist %d/%d".formatted(page, maxPages))
+                .setTitle("Playlist %d/%d".formatted(page + 1, maxPages))
                 .setDescription("## Now playing\n[%s - %s](%s) - `%s`".formatted(
                         currentTrackInfo.title, currentTrackInfo.author, currentTrackInfo.uri, formatDuration(currentTrackInfo.length)
                 ))
